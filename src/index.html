@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Filip's Shieet </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--bootstrap style import-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!--our own stylesheet-->
+    <link rel='stylesheet' href='style/style.css'>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                  <i class="fa fa-money" aria-hidden="true"></i>
+                </a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#" id="userName">User Name: </a></li>
+                <li><a href="#" id="balance">Balance:</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" id="facebookNavbar">
+                <li><a href="#"><i class="fa fa-facebook fa-1x" aria-hidden="true"></i></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="contaner-fluid" id="wrapper">
+
+      <div class="container-fluid" id="intro">
+        <h1> Alex's KEA Bank International</h1>
+        <hr>
+        <p>Stock trading system made by our SWC teacher Alex</p>
+      </div>
+      <div class="container-fluid" id="offers">
+        <h1>Offers</h1>
+        <hr>
+        <table class="table" id="table">
+          <tr>
+            <th>ID</th>
+            <th>Amount</th>
+            <th>Currency</th>
+            <th>Since</th>
+          </tr>
+        </table>
+      </div>
+
+      <div class="container-fluid" id="buy">
+        <h1>Buy Stocks</h1>
+        <hr>
+        <div class="row">
+          <div class="col-lg-6">
+            <label><span>ID</span></label>
+          </div>
+          <div class="col-lg-6">
+            <label><span></span></label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <input type="text" name="buyId" id="buyField">
+          </div>
+          <div class="col-lg-6">
+            <button type="button" id="buyButton">Buy</button>
+          </div>
+        </div>
+        <p id="buyGood"></p>
+      </div>
+
+
+      <div class="container-fluid" id="rateDiv">
+        <h1>Get Exchange Rate</h1>
+        <hr>
+        <p>Enter the from amount and requsted amount</p>
+        <div class="row">
+          <div class="col-md-4">
+            <label><span>From</span></label>
+          </div>
+          <div class="col-md-4">
+            <label><span>To</span></label>
+          </div>
+          <div class="col-md-4">
+            <label><span>Check</span><label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <input type="text" name="fromInput" id="fromInput">
+          </div>
+          <div class="col-md-4">
+            <input type="text" name="toInput" id="toInput">
+          </div>
+          <div class="col-md-4">
+            <button type="button" id="checkButton">Check</button>
+          </div>
+        </div>
+        <p id="exchange_rateParagraph"></p>
+      </div>
+
+
+      <!-- Sell stock -->
+      <div class="container-fluid" id="sell">
+        <h1>Sell Stocks</h1>
+        <hr>
+        <div class="row">
+          <div class="col-lg-6">
+            <label><span> Amount</span></label>
+          </div>
+          <div class="col-lg-6"><!--empty cause there is no need to have a label above the button --></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <input type="text" name="sellInput" id="sellField">
+          </div>
+          <div class="col-lg-6">
+            <button type="button" id="sellButton">Sell</button>
+          </div>
+        </div>
+        <p id="sellGood"></p>
+      </div>
+      <div class="container-fluid" id="footer">
+        <p>Made by Filip Malek All Rights Reserved</p>
+      </div>
+
+    </div>
+    <!-- jQuery import -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- Icons script link -->
+    <script src="https://use.fontawesome.com/33c8c94010.js"></script>
+    <script src="script/myJs.js"></script>
+  </body>
+</html>

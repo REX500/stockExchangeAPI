@@ -1,0 +1,51 @@
+#wrapper{
+  background: url("../img/background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+}
+h1{
+  font-size: 50px;
+  font-family: monospace;;
+  color: antiquewhite;
+}
+p{
+  font-size: 15px;
+  font-family: sans-serif;
+  color: antiquewhite;
+}
+hr{
+    max-width: 50px;
+    border-color: darkslategray;
+    border-width: 3px;
+}
+.container-fluid{
+  margin-left: 0;
+  margin-right: 0;
+}
+#intro{
+  padding-top: 150px;
+}
+.navbar-default{
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  border-color: black;
+}
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+.navbar-default .navbar-nav > li{
+    color: white;
+}
+.fa-money{
+  color:white;
+}
+label{
+  font-family: monospace;
+  font-size: 19px;
+  color: white;
+}
+#table{
+  color: white;
+}

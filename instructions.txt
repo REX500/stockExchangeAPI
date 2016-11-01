@@ -1,0 +1,35 @@
+how to do a http request - u need to provide a link to it like this: http://www.google.com
+if its a get http request: u write a ? at the end of it and then some data like param1=val1&param2=val2
+get request can have as much as 2048 char's, not more, its not how many parameters its how many char's
+
+Post request:
+  the params are in the header of the request but not the link itself
+
+  AJAX:
+  the way to init it:
+  $.ajax() - the idea is that u dont have to reload the page every time
+
+  ajax call:
+  it takes a jason
+  $.ajax(){
+  'url':'link for our assignment, smth like this: http://57.228.6/man2API/php/BankPhp.php',
+  // here we specify the type of the req we want to use
+  'type':'GET',
+  'data':{
+      'param1':'val1',
+      'param2':'val2'
+    }
+  },
+  'success':function(dataIn){
+  ------
+  --------
+  -----the code to be run when we get the answer from the server/api
+  --- string that looks like a json is the dataIn object we get back from the server
+  -- to pars from the string JSON.pars(dataIn);
+  -
+  }
+
+
+  ajax code will run in another thread, each ajax code u have will run in a other thread
+  that means that  the part in success like a variable we cannot use it outside
+  the 'success'
