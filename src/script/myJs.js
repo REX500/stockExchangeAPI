@@ -1,60 +1,61 @@
+var apiKey = 'f145e7744258176e27d5dde05027b5f9';
+
+var apiLink = "http://52.57.228.6/man2API/php/BankPhp.php";
+
 $(document).ready(function(){
-  var apiKey = 'f145e7744258176e27d5dde05027b5f9';
 
-  var apiLink = "http://52.57.228.6/man2API/php/BankPhp.php";
+    setInterval(getAccInfo, 10000);
+    setInterval(seeOffers, 15000);
+    seeExchangeRate();
+    sellStocks();
+    buyStocks();
+});
 
-  // ajax call for account info bellow
-  $.ajax({
-  'url' : apiLink,
-  // here we specify the type of the req we want to use
-  'type':'GET',
-  'data':{
-      'apikey': apiKey,
-      'what':'account_info'
-    },
-  'success':function(dataIn){
-    //console.log(dataIn);
-    var niceOutput = JSON.parse(dataIn);
-    //console.log(niceOutput);
+var button = $("#expand");
+$("#expand").click(function(){
+  $("#offers").slideToggle('slow');
 
-    var amount = niceOutput.data[0].amount;
-    var name = niceOutput.data[0].currency;
-
-    $('#userName').append(name);
-    $('#balance').append(amount);
+  if(button.text()=="See Offers"){
+    button.text("Hide Offers");
+  }
+  else{
+    button.text("See Offers");
   }
 });
-// ajax for buy function
-  $("#buyButton").click(function(){
-    var id = $("#buyField").val();
-    console.log("This is the ID:"+id);
-    $.ajax({
-      'url': apiLink,
-      'type' : 'GET',
-      'data':{
-        'what':'buy',
-        'offer': id,
-        'apikey' : apiKey
-      },
-      'success':function(dataIn){
-        console.log(dataIn);
-        var out = JSON.parse(dataIn);
-        console.log(out);
-        // all the fields retrieved from
-        var id = out.data.id;
-        console.log(id);
-        var oc = out.data.offerCurrency;
-        var bc = out.data.buyCurrency;
-        var amount = out.data.amount;
-        var ot = out.data.offerTime;
-        var bt = out.data.buyTime;
 
-        var total = "Buy ID:"+id+" Offer:"+oc+" Buy:"+bc+" Amount:"+amount+" Offer Time:"+ot+" Buy Time:"+bt;
-        $("#buyGood").append(total);
-      }
+function buyStocks(){
+  // ajax for buy function
+    $("#buyButton").click(function(){
+      var id = $("#buyField").val();
+      console.log("This is the ID:"+id);
+      $.ajax({
+        'url': apiLink,
+        'type' : 'GET',
+        'data':{
+          'what':'buy',
+          'offer': id,
+          'apikey' : apiKey
+        },
+        'success':function(dataIn){
+          console.log(dataIn);
+          var out = JSON.parse(dataIn);
+          console.log(out);
+          // all the fields retrieved from
+          var id = out.data.id;
+          console.log(id);
+          var oc = out.data.offerCurrency;
+          var bc = out.data.buyCurrency;
+          var amount = out.data.amount;
+          var ot = out.data.offerTime;
+          var bt = out.data.buyTime;
+
+          var total = "Buy ID:"+id+" Offer:"+oc+" Buy:"+bc+" Amount:"+amount+" Offer Time:"+ot+" Buy Time:"+bt;
+          $("#buyGood").append(total);
+        }
+      });
     });
-  });
-
+}
+function sellStocks(){
   $("#sellButton").click(function(){
     // ajax to sell stacks
     var money = $("#sellField").val();
@@ -80,7 +81,8 @@ $(document).ready(function(){
       }
     });
   });
-
+}
+function seeOffers(){
   // ajax code for the offer view
   $.ajax({
     'url': apiLink,
@@ -102,7 +104,34 @@ $(document).ready(function(){
       }
     }
   });
+}
+function getAccInfo(){
+  // ajax call for account info bellow
+  $.ajax({
+  'url' : apiLink,
+  // here we specify the type of the req we want to use
+  'type':'GET',
+  'data':{
+      'apikey': apiKey,
+      'what':'account_info'
+    },
+  'success':function(dataIn){
+    //console.log(dataIn);
+    var niceOutput = JSON.parse(dataIn);
+    //console.log(niceOutput);
 
+    var amount = niceOutput.data[0].amount;
+    var name = niceOutput.data[0].currency;
+
+    /*$('#userName').append(name);
+    $('#balance').append(amount);*/
+
+    $('#userName').html(name);
+    $('#balance').html(amount);
+  }
+});
+}
+function seeExchangeRate(){
   // ajax call for the ability to see the exchange rate
   $("#checkButton").click(function(){
     var from = $("#fromInput").val();
@@ -126,4 +155,4 @@ $(document).ready(function(){
       }
     });
   });
-});
+}
